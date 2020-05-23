@@ -34,9 +34,9 @@
 <meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81.png">
 <meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/yilia.png">
 <meta property="article:published_time" content="2020-04-01T08:34:16.060Z">
-<meta property="article:modified_time" content="2020-05-09T14:12:06.193Z">
+<meta property="article:modified_time" content="2020-05-23T08:27:36.599Z">
 <meta property="article:author" content="czy">
-<meta property="article:tag" content="个人博客">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/nodejs.png">
 
@@ -204,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-09 22:12:06" itemprop="dateModified" datetime="2020-05-09T22:12:06+08:00">2020-05-09</time>
+                <time title="修改时间：2020-05-23 16:27:36" itemprop="dateModified" datetime="2020-05-23T16:27:36+08:00">2020-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +212,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo搭建博客</span></a>
+                  <a href="/categories/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">hexo个人博客</span></a>
                 </span>
             </span>
 
@@ -241,20 +241,16 @@
 <h5 id="一：前期准备————注册github账号，下载git，node-js"><a href="#一：前期准备————注册github账号，下载git，node-js" class="headerlink" title="一：前期准备————注册github账号，下载git，node.js"></a>一：前期准备————注册github账号，下载git，node.js</h5><p>1.注册github账号：可以前去<a href="https://www.github.com" target="_blank" rel="noopener">https://www.github.com</a>注册，点击右上角的sign up,输入用户名，绑定你的邮箱，输入你的密码，即可完成注册。<br>2.下载git:前往<a href="https://gitforwindows.org/" target="_blank" rel="noopener">https://gitforwindows.org/</a>,点击download，选择你电脑型号的下载。<br>3.node.js:前往<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
 <p> <img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/nodejs.png" alt="ffd"></p>
 <hr>
-<h5 id="二：开始配置"><a href="#二：开始配置" class="headerlink" title="二：开始配置"></a>二：开始配置</h5><p>1.前往git文件夹下，右键打开git bash—–相当于Linux的终端，输入</p>
+<h5 id="二：开始配置"><a href="#二：开始配置" class="headerlink" title="二：开始配置"></a>二：开始配置</h5><p>1.前往git文件夹下，右键打开git bash——-相当于Linux的终端，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;your mail&quot;</span><br></pre></td></tr></table></figure>
-
 <p>username就是你注册github账号名字，your mail 就是注册github时绑定的邮箱。</p>
 <p>2.安装hexo       不要在晚上时安装，因为github晚上的访问很慢，所以会出错——我踩过的坑</p>
 <p>前往git文件夹，右键打开git bash,输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
 <p>3.初始化hexo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
 <p><folder>就是一个存放站点文件的文件夹，可以建在任意地方，用cd命令转至其它地方，我是直接在建在git文件夹下，方便查找。所以可以直接输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init Myblog</span><br><span class="line">cd Myblog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
 <p>这时候git文件夹会生成Myblog文件夹。</p>
 <p>4.在本地打开博客网站</p>
 <p>在站点文件夹下运行git bash,输入hexo serer(hexo s),当出现下面的图片，就证明我们可以在本地打开我们的博客网站了。</p>
@@ -266,10 +262,8 @@
 <p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.png" alt=""></p>
 <p>2.安装hexo-deployer-git插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
 <p>3.创建SSH key</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your mail&quot;</span><br></pre></td></tr></table></figure>
-
 <p>会出现这样，意思是输入你github密码，再输入一遍</p>
 <p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81.png" alt=""></p>
 <p>4.复制id_rsa.pub文件的内容</p>
@@ -281,24 +275,19 @@
 <p>6.修改博客配置</p>
 <p>前往站点文件夹(Myblog),用记事本打开.config.yml文件，找到如下图位置，修改。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line"> repo: git@github.com:Chengzhaoyong&#x2F;Chengzhaoyong.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
 <p>注意：冒号后面有一个空格</p>
 <p>6.推送到github</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g   生成静态文件，每写一篇博客，都要执行</span><br><span class="line">hexo d   部署到github仓库</span><br></pre></td></tr></table></figure>
-
 <hr>
 <p><strong>这时候我们就可以通过用户名.github.io访问我们的博客了，我们已经成功搭建好博客了。</strong></p>
 <hr>
-<h3 id="四：主题更换—-yilia"><a href="#四：主题更换—-yilia" class="headerlink" title="四：主题更换—-yilia"></a>四：主题更换—-yilia</h3><p>1.在站点文件夹（Myblog）运行git bash ,输入</p>
+<h3 id="四：主题更换——yilia"><a href="#四：主题更换——yilia" class="headerlink" title="四：主题更换——yilia"></a>四：主题更换——yilia</h3><p>1.在站点文件夹（Myblog）运行git bash ,输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git themes&#x2F;yilia</span><br></pre></td></tr></table></figure>
-
 <p>在Myblog文件夹下的themes文件夹就会有一个yilia文件夹</p>
 <p>2.前往站点文件夹(Myblog),用记事本打开.config.yml文件，找到如下图位置，修改。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme:yilia</span><br></pre></td></tr></table></figure>
-
 <p>3.运行命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g    重新生成静态文件</span><br><span class="line">hexo d    重新部署到github</span><br></pre></td></tr></table></figure>
-
 <p>4.输入用户名.github.io，就可以看到我们的博客主题换了。</p>
 <p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/buildBlog/yilia.png" alt=""></p>
 <hr>
@@ -314,7 +303,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag"># 个人博客</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
           </div>
 
         
@@ -385,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一：前期准备————注册github账号，下载git，node-js"><span class="nav-number">1.</span> <span class="nav-text">一：前期准备————注册github账号，下载git，node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二：开始配置"><span class="nav-number">2.</span> <span class="nav-text">二：开始配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-将博客部署到github上（所有命令都要在站点文件夹下Myblog运行git-bash）"><span class="nav-number"></span> <span class="nav-text">三:将博客部署到github上（所有命令都要在站点文件夹下Myblog运行git bash）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四：主题更换—-yilia"><span class="nav-number"></span> <span class="nav-text">四：主题更换—-yilia</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一：前期准备————注册github账号，下载git，node-js"><span class="nav-number">1.</span> <span class="nav-text">一：前期准备————注册github账号，下载git，node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二：开始配置"><span class="nav-number">2.</span> <span class="nav-text">二：开始配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-将博客部署到github上（所有命令都要在站点文件夹下Myblog运行git-bash）"><span class="nav-number"></span> <span class="nav-text">三:将博客部署到github上（所有命令都要在站点文件夹下Myblog运行git bash）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四：主题更换——yilia"><span class="nav-number"></span> <span class="nav-text">四：主题更换——yilia</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -399,20 +388,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
