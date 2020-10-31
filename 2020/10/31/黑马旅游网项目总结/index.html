@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="黑马旅游网项目总结">
+<meta property="og:url" content="http://yoursite.com/2020/10/31/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="好好学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E9%A6%96%E9%A1%B5.png">
+<meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/1.%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90.png">
+<meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/2.%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD.png">
+<meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E5%88%86%E7%B1%BB%E6%98%BE%E7%A4%BA.png">
+<meta property="og:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA.png">
+<meta property="article:published_time" content="2020-10-31T07:20:03.974Z">
+<meta property="article:modified_time" content="2020-10-31T12:36:52.339Z">
+<meta property="article:author" content="czy">
+<meta property="article:tag" content="Javaweb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E9%A6%96%E9%A1%B5.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/10/31/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh_CN'
+  };
+</script>
+
+  <title>黑马旅游网项目总结 | 好好学习</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">好好学习</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/31/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="czy">
+      <meta itemprop="description" content="好好学习，天天进步">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="好好学习">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          黑马旅游网项目总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-31 15:20:03 / 修改时间：20:36:52" itemprop="dateCreated datePublished" datetime="2020-10-31T15:20:03+08:00">2020-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javaweb/" itemprop="url" rel="index"><span itemprop="name">Javaweb</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E9%A6%96%E9%A1%B5.png" alt=""></p>
+<a id="more"></a>
+<h3 id="黑马旅游网项目总结，主要是巩固javaweb的知识，基本全部都运用上了。"><a href="#黑马旅游网项目总结，主要是巩固javaweb的知识，基本全部都运用上了。" class="headerlink" title="黑马旅游网项目总结，主要是巩固javaweb的知识，基本全部都运用上了。"></a>黑马旅游网项目总结，主要是巩固javaweb的知识，基本全部都运用上了。</h3><h5 id="1-BaseSerlvet的学习"><a href="#1-BaseSerlvet的学习" class="headerlink" title="1 BaseSerlvet的学习"></a>1 BaseSerlvet的学习</h5><p>做到后面，发现每实现一个功能就要写一个servlet，太多serlvet反而不好，我们想要有关数据库的一张表就对应一个servlet,所以我们引入了BaseServlet,BaseServlet继承HttpServlet,然后让实际实现功能的servlet继承BaseServlet，BaseServlet的service方法很重要，负责分配执行继承BaseServlet的Servlet的方法，应用了反射机制，获取了所有方法，请求哪个方法，就执行哪个方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">service</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>&#123;<br>        <span class="hljs-comment">//1 获取请求路径</span><br>       String uri=request.getRequestURI();<br>       <span class="hljs-comment">//2 获取方法名称</span><br>      String methodName= uri.substring(uri.lastIndexOf(<span class="hljs-string">"/"</span>)+<span class="hljs-number">1</span>);<br><br>       <span class="hljs-comment">//3 获取方法对象</span><br>       <span class="hljs-keyword">try</span> &#123;<br>           Method method=<span class="hljs-keyword">this</span>.getClass().getMethod(methodName, HttpServletRequest<span class="hljs-class">.<span class="hljs-keyword">class</span>,<span class="hljs-title">HttpServletResponse</span>.<span class="hljs-title">class</span>)</span>;<br>          method.invoke(<span class="hljs-keyword">this</span>,request,response);<br>       &#125; <span class="hljs-keyword">catch</span> (NoSuchMethodException e) &#123;<br>           e.printStackTrace();<br>       &#125; <span class="hljs-keyword">catch</span> (IllegalAccessException e) &#123;<br>           e.printStackTrace();<br>       &#125; <span class="hljs-keyword">catch</span> (InvocationTargetException e) &#123;<br>           e.printStackTrace();<br>       &#125;<br></code></pre></td></tr></table></figure>
+<h4 id="2-注册功能"><a href="#2-注册功能" class="headerlink" title="2  注册功能"></a>2  注册功能</h4><p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/1.%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90.png" alt=""></p>
+<p>(1)前端在用户名和密码邮箱等等属性校验成功后，才能发起表单提交。将表单系列化，弄成键：值这种形式。返回的json数据，如果flag=true,就跳转激活邮件页面，失败则提醒用户。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//表单异步提交</span><br>$(<span class="hljs-string">"#registerForm"</span>).submit(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">if</span> (checkUsername() &amp;&amp; checkPassword() &amp;&amp; checkEmail()) &#123;<br>        $.post(<span class="hljs-string">"user/regist"</span>, $(<span class="hljs-keyword">this</span>).serialize(), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>            <span class="hljs-keyword">if</span>(data.flag)&#123;<br>                location.href=<span class="hljs-string">"register_ok.html"</span>;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                $(<span class="hljs-string">"#Error_msg"</span>).html(data.errorMsg);<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
+<p>（2）后端UserSerlvet的regist方法接到请求后</p>
+<p>​       （1）获取所有的参数集合</p>
+<p>​       （2）封装User对象</p>
+<p>​       （3）注册（返回flag）</p>
+<p>​                查找用户名是否存在</p>
+<p>​                        存在直接返回false</p>
+<p>​                       不存在则存储用户，发邮件</p>
+<p>​                      用户可以根据邮件信息<a>http://localhost:8080/user/active?code=</a>+user.getCode()去请                             求，如果根据激活码查询用户，用户不存在，返回错误信息，存在则更新激活状态。跳转登录界面</p>
+<p>​      （4）返回json数据</p>
+<p>​         resultInfo的三个数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> flag;<span class="hljs-comment">//后端返回结果正常为true，发生异常返回false</span><br><span class="hljs-keyword">private</span> Object data;<span class="hljs-comment">//后端返回结果数据对象</span><br><span class="hljs-keyword">private</span> String errorMsg;<span class="hljs-comment">//发生异常的错误消息</span><br></code></pre></td></tr></table></figure>
+<p>​      前端根据flag=ture去跳转激活页面，false就显示错误信息</p>
+<h4 id="2-登录功能"><a href="#2-登录功能" class="headerlink" title="2 登录功能"></a>2 登录功能</h4><p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/2.%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD.png" alt=""></p>
+<p> （1）前端给登录按钮添加点击事件，一点击就发送表单提交，异步请求。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-string">"#btn_sub"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>   $.<span class="hljs-keyword">get</span>("user/login",$("#loginForm").serialize(),function (data) &#123;<br>                      <span class="hljs-keyword">if</span>(data.flag)&#123;<br>                       location.href=<span class="hljs-string">"index.html"</span>;<br>          &#125;<span class="hljs-keyword">else</span>&#123;<br>                       $(<span class="hljs-string">"#errorMsg"</span>).html(data.errorMsg);<br>          &#125;<br><br>   &#125;)<br><br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>   (2)后端UserServlet的login方法</p>
+<p>​      （1）获取参数</p>
+<p>​      （2）封装User</p>
+<p>​         (3)根据用户名和密码查询数据库有没有存在该用户，</p>
+<p>​                 User==null        ———封装resultInfo</p>
+<p>​                 User！=null   </p>
+<p>​                     查询激活码true       -&gt;将user存到session中，封装resultInfo</p>
+<p>​                    查询激活码false    ——封装resultInfo</p>
+<p>   (3)返回json数据(后面会在BasesServlet中封装成一个方法)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">ObjectMapper mapper=<span class="hljs-keyword">new</span> ObjectMapper();<br>response.setContentType(<span class="hljs-string">"application/json;charset=utf-8"</span>);<br>mapper.writeValue(response.getOutputStream(),info);<br></code></pre></td></tr></table></figure>
+<p>（4）前端根据flag=true,跳转首页，false显示错误信息。</p>
+<h5 id="3-欢迎姓名"><a href="#3-欢迎姓名" class="headerlink" title="(3)欢迎姓名"></a>(3)欢迎姓名</h5><p>（1）前端异步请求，查询是否有用户登录</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$.<span class="hljs-keyword">get</span>("user/findOneName",&#123;&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> msg=<span class="hljs-string">"欢迎回来！"</span>+data.username;<br>    $(<span class="hljs-string">"#span_username"</span>).html(msg);<br><br>&#125;);<br></code></pre></td></tr></table></figure>
+<p>   (2)后端UserServlet的findOneName()接到请求后，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">User user= (User) request.getSession().getAttribute(<span class="hljs-string">"user"</span>);<br>   ObjectMapper mapper=<span class="hljs-keyword">new</span> ObjectMapper();<br>response.setContentType(<span class="hljs-string">"application/json;charset=utf-8"</span>);<br>mapper.writeValue(response.getOutputStream(),user);<br></code></pre></td></tr></table></figure>
+<p>(3)前端接受到数据，就将姓名显示出来</p>
+<h4 id="4-分页显示数据"><a href="#4-分页显示数据" class="headerlink" title="(4)分页显示数据"></a>(4)分页显示数据</h4><p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E5%88%86%E7%B1%BB%E6%98%BE%E7%A4%BA.png" alt=""></p>
+<p>（1）CategoryServlet的findAll()查询，返回list<Category>集合,返回给前端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Category&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span> </span>&#123;<br>    Jedis jedis = JedisUtil.getJedis();<br>    <span class="hljs-comment">//    Set&lt;String&gt; category=jedis.zrange("category",0,-1);</span><br>    Set&lt;Tuple&gt; category = jedis.zrangeWithScores(<span class="hljs-string">"category"</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>);<br>    List&lt;Category&gt; list = <span class="hljs-keyword">null</span>;<br>    <span class="hljs-keyword">if</span> (category == <span class="hljs-keyword">null</span> || category.size() == <span class="hljs-number">0</span>) &#123;<br>        System.out.println(<span class="hljs-string">"数据库查询"</span>);<br>        list = categorydao.findAll();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; list.size(); i++) &#123;<br>            jedis.zadd(<span class="hljs-string">"category"</span>, list.get(i).getCid(), list.get(i).getCname());<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        System.out.println(<span class="hljs-string">"redis查询"</span>);<br>        list = <span class="hljs-keyword">new</span> ArrayList&lt;Category&gt;();<br>        <span class="hljs-keyword">for</span> (Tuple tuple : category) &#123;<br>            Category category1 = <span class="hljs-keyword">new</span> Category();<br>            category1.setCname(tuple.getElement());<br>            category1.setCid((<span class="hljs-keyword">int</span>)tuple.getScore());<br>            list.add(category1);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> list;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>（2）前端拿到list后</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$.<span class="hljs-keyword">get</span>("category/findAll",&#123;&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;<br>    <span class="hljs-keyword">var</span> lis=<span class="hljs-string">'&lt;li class="nav-active"&gt;&lt;a href="index.html"&gt;首页&lt;/a&gt;&lt;/li&gt;'</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;data.length;i++)&#123;<br>        <span class="hljs-keyword">var</span> li=<span class="hljs-string">'&lt;li&gt;&lt;a href="route_list.html?cid='</span>+data[i].cid+<span class="hljs-string">'"&gt;'</span>+data[i].cname+<span class="hljs-string">'&lt;/a&gt;&lt;/li&gt;'</span>;<br>        lis+=li;<br>    &#125;<br>    lis+=<span class="hljs-string">'&lt;li&gt;&lt;a href="favoriterank.html"&gt;收藏排行榜&lt;/a&gt;&lt;/li&gt;'</span>;<br>    $(<span class="hljs-string">"#category"</span>).html(lis);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h5 id="5-分页查询"><a href="#5-分页查询" class="headerlink" title="5 分页查询"></a>5 分页查询</h5><p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91/%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA.png" alt=""></p>
+<p>（1）首先先封装pageBean对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> totalCount;  <span class="hljs-comment">//总记录数</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> totalPage;   <span class="hljs-comment">//总页数</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> currentPage;  <span class="hljs-comment">//当前页数</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> pageSize;    <span class="hljs-comment">//每页显示的记录数</span><br><span class="hljs-keyword">private</span> List&lt;T&gt; list;    <span class="hljs-comment">//list集合</span><br></code></pre></td></tr></table></figure>
+<p>   （2）后端Route/pageQuery方法，返回PageBean<Route>给前端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">pageQuery</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>&#123;<br>   String Page=request.getParameter(<span class="hljs-string">"currentPage"</span>); <span class="hljs-comment">//当前页码</span><br>   String PageSize=request.getParameter(<span class="hljs-string">"PageSize"</span>);<span class="hljs-comment">//每页显示的记录数</span><br>   String cid=request.getParameter(<span class="hljs-string">"cid"</span>);<br>   String rname=request.getParameter(<span class="hljs-string">"rname"</span>);<br>   <span class="hljs-comment">//处理参数</span><br>   <span class="hljs-keyword">int</span> currentPage=<span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">if</span>(Page!=<span class="hljs-keyword">null</span>&amp;&amp;Page.length()&gt;<span class="hljs-number">0</span>)&#123;<br>       currentPage=Integer.parseInt(Page);<br>   &#125;<span class="hljs-keyword">else</span>&#123;<br>       currentPage=<span class="hljs-number">1</span>;<br>   &#125;<br><br>    <span class="hljs-keyword">int</span> pageSize=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span>(PageSize!=<span class="hljs-keyword">null</span>&amp;&amp; PageSize.length()&gt;<span class="hljs-number">0</span>)&#123;<br>        pageSize=Integer.parseInt(PageSize);<br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        pageSize=<span class="hljs-number">5</span>;<br>    &#125;<br>    <span class="hljs-keyword">int</span> cid1=<span class="hljs-number">0</span>;<br> <span class="hljs-comment">//这个防止cid为空时异常，Cid为空时，cid1=0,在后面就不会拼接sql语句，就是在全局搜索了</span><br>    <span class="hljs-keyword">if</span>(cid!=<span class="hljs-keyword">null</span>&amp;&amp; cid.length()&gt;<span class="hljs-number">0</span>&amp;&amp;!<span class="hljs-string">"null"</span>.equals(cid))&#123;<br>        cid1=Integer.parseInt(cid);<br>    &#125;<br>    <span class="hljs-comment">//rname不能=null,否则不参加拼接sql语句</span><br> PageBean&lt;Route&gt;pb=service.findAllByPage(currentPage,pageSize,cid1,rname);<br>    writeValue(pb,response);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p> （3）前端拿到数据后，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> cid=getParameter(<span class="hljs-string">"cid"</span>);<br>  <span class="hljs-keyword">var</span> rname=getParameter(<span class="hljs-string">"rname"</span>);<br>  <span class="hljs-keyword">if</span>(rname)&#123;<br>      rname=<span class="hljs-built_in">window</span>.decodeURIComponent(rname);<br>  &#125;<br><br>  load(cid,<span class="hljs-literal">null</span>,rname);<br>&#125;);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span>  <span class="hljs-title">load</span>(<span class="hljs-params">cid,currentPage,rname</span>) </span>&#123;<br>    $.<span class="hljs-keyword">get</span>("route/pageQuery",&#123;cid:cid,<span class="hljs-attr">currentPage</span>:currentPage,<span class="hljs-attr">rname</span>:rname&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pb</span>) </span>&#123;<br>        $(<span class="hljs-string">"#totalCount"</span>).html(pb.totalCount);<br>        $(<span class="hljs-string">"#totalPage"</span>).html(pb.totalPage);<br><br>        <span class="hljs-keyword">var</span> lis=<span class="hljs-string">""</span>;<br>        lis+=<span class="hljs-string">'&lt;li onclick="load('</span>+cid+<span class="hljs-string">',1,\''</span>+rname+<span class="hljs-string">'\')"&gt;&lt;a href="javascript:void(0);"&gt;首页&lt;/a&gt;&lt;/li&gt;'</span>;<br>        <span class="hljs-keyword">var</span> page=pb.currentPage<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">if</span>(page&lt;<span class="hljs-number">1</span>)&#123;<br>            page=<span class="hljs-number">1</span>;<br>        &#125;<br>        lis+=<span class="hljs-string">'&lt;li class="threeword" onclick="load('</span>+cid+<span class="hljs-string">','</span>+page+<span class="hljs-string">',\''</span>+rname+<span class="hljs-string">'\')"&gt;&lt;a href="javascript:void(0);"&gt;上一页&lt;/a&gt;&lt;/li&gt;'</span>;<br><br>       <span class="hljs-comment">//只显示10个页码</span><br>        <span class="hljs-keyword">var</span> begin;<br>        <span class="hljs-keyword">var</span> end;<br>        <span class="hljs-keyword">if</span>(pb.totalPage&lt;<span class="hljs-number">10</span>)&#123;<br>            begin=<span class="hljs-number">1</span>;<br>            end=pb.totalPage;<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            begin=pb.currentPage<span class="hljs-number">-5</span>;<br>            end=pb.currentPage+<span class="hljs-number">4</span>;<br>            <span class="hljs-keyword">if</span>(begin&lt;<span class="hljs-number">1</span>)&#123;<br>                begin=<span class="hljs-number">1</span>;<br>                end=begin+<span class="hljs-number">9</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">if</span>(end&gt;pb.totalPage)&#123;<br>                begin=pb.totalPage<span class="hljs-number">-9</span>;<br>                end=pb.totalPage;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = begin; i &lt;=end ; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i==pb.currentPage)&#123;<br>                <span class="hljs-keyword">var</span> li=<span class="hljs-string">'&lt;li class="curPage" onclick="load('</span>+cid+<span class="hljs-string">','</span>+i+<span class="hljs-string">',\''</span>+rname+<span class="hljs-string">'\')"&gt;&lt;a href="javascript:void(0);"&gt;'</span>+i+<span class="hljs-string">'&lt;/a&gt;&lt;/li&gt;'</span>;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-keyword">var</span> li=<span class="hljs-string">'&lt;li onclick="load('</span>+cid+<span class="hljs-string">','</span>+i+<span class="hljs-string">',\''</span>+rname+<span class="hljs-string">'\')"&gt;&lt;a href="javascript:void(0)"&gt;'</span>+i+<span class="hljs-string">'&lt;/a&gt;&lt;/li&gt;'</span>;<br>            &#125;<br>            lis+=li;<br>        &#125;<br>  <br>        page=pb.currentPage+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(page&gt;pb.totalPage)&#123;<br>            page=pb.totalPage;<br>        &#125;<br>        lis+=<span class="hljs-string">'&lt;li class="threeword" onclick="load('</span>+cid+<span class="hljs-string">','</span>+page+<span class="hljs-string">',\''</span>+rname+<span class="hljs-string">'\')"&gt;&lt;a href="javascript:void(0);"&gt;下一页&lt;/a&gt;&lt;/li&gt;'</span>;<br>        lis+=<span class="hljs-string">'&lt;li class="threeword" onclick="load('</span>+cid+<span class="hljs-string">','</span>+pb.totalPage+<span class="hljs-string">',\''</span>+rname+<span class="hljs-string">'\')"&gt;&lt;a href="javascript:void(0);"&gt;末页&lt;/a&gt;&lt;/li&gt;'</span>;<br><br>        $(<span class="hljs-string">"#pageNumber"</span>).html(lis);<br><br>        <span class="hljs-comment">//list集合展示</span><br>        <span class="hljs-keyword">var</span> route_lis=<span class="hljs-string">""</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;pb.list.length ; i++) &#123;<br>            <span class="hljs-keyword">var</span> route=pb.list[i];<br>            <span class="hljs-keyword">var</span> li=<span class="hljs-string">'  &lt;li&gt;\n'</span> +<br>                <span class="hljs-string">'                            &lt;div class="img"&gt;&lt;img style="width:299px;" src="'</span>+route.rimage+<span class="hljs-string">'"&gt;&lt;/div&gt;\n'</span> +<br>                <span class="hljs-string">'                            &lt;div class="text1"&gt;\n'</span> +<br>                <span class="hljs-string">'                                &lt;p&gt;'</span>+route.rname+<span class="hljs-string">'&lt;/p&gt;\n'</span> +<br>                <span class="hljs-string">'                                &lt;br/&gt;\n'</span> +<br>                <span class="hljs-string">'                                &lt;p&gt;'</span>+route.routeIntroduce+<span class="hljs-string">'&lt;/p&gt;\n'</span> +<br>                <span class="hljs-string">'                            &lt;/div&gt;\n'</span> +<br>                <span class="hljs-string">'                            &lt;div class="price"&gt;\n'</span> +<br>                <span class="hljs-string">'                                &lt;p class="price_num"&gt;\n'</span> +<br>                <span class="hljs-string">'                                    &lt;span&gt;&amp;yen;&lt;/span&gt;\n'</span> +<br>                <span class="hljs-string">'                                    &lt;span&gt;'</span>+route.price+<span class="hljs-string">'&lt;/span&gt;\n'</span> +<br>                <span class="hljs-string">'                                    &lt;span&gt;起&lt;/span&gt;\n'</span> +<br>                <span class="hljs-string">'                                &lt;/p&gt;\n'</span> +<br>                <span class="hljs-string">'                                &lt;p&gt;&lt;a href="route_detail.html?rid='</span>+route.rid+<span class="hljs-string">'"&gt;查看详情&lt;/a&gt;&lt;/p&gt;\n'</span> +<br>                <span class="hljs-string">'                            &lt;/div&gt;\n'</span> +<br>                <span class="hljs-string">'                        &lt;/li&gt;'</span>;<br>            route_lis+=li;<br><br>        &#125;<br>        $(<span class="hljs-string">"#list"</span>).html(route_lis);<br><br>        <span class="hljs-built_in">window</span>.scrollTo(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<span class="hljs-comment">//每换一次页码，都会回到页面顶端</span><br>        <br><br>    &#125;);<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="6-收藏功能"><a href="#6-收藏功能" class="headerlink" title="6 收藏功能"></a>6 收藏功能</h5><p>   1.前端发送异步请求，提交rid,返回Route对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs javascript"> <span class="hljs-keyword">var</span> rid = getParameter(<span class="hljs-string">"rid"</span>);<br> $.<span class="hljs-keyword">get</span>("route/findDetail", &#123;rid: rid&#125;, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">route</span>) </span>&#123;<br> $(<span class="hljs-string">"#rname"</span>).html(route.rname);<br> $(<span class="hljs-string">"#price"</span>).html(<span class="hljs-string">"￥"</span>+route.price);<br> $(<span class="hljs-string">"#routeIntroduce"</span>).html(route.routeIntroduce);<br> $(<span class="hljs-string">"#sname"</span>).html(route.seller.sname);<br> $(<span class="hljs-string">"#consphone"</span>).html(route.seller.consphone);<br> $(<span class="hljs-string">"#address"</span>).html(route.seller.address);<br>$(<span class="hljs-string">"#love"</span>).html(<span class="hljs-string">"已收藏"</span>+route.count+<span class="hljs-string">"次"</span>);<br> <span class="hljs-keyword">var</span> lis=<span class="hljs-string">'  &lt;a class="up_img up_img_disable"&gt;&lt;/a&gt;'</span>;<br><br> <span class="hljs-comment">//遍历图片集合</span><br>     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt;route.routeImgList.length ; i++) &#123;<br>                                              <span class="hljs-keyword">var</span> a;<br>                                              <span class="hljs-keyword">if</span>(i&lt;<span class="hljs-number">4</span>)&#123;<br> a=<span class="hljs-string">' &lt;a title="" class="little_img"\n'</span> +<br> <span class="hljs-string">'                   data-bigpic="'</span>+route.routeImgList[i].bigPic+<span class="hljs-string">'"&gt;\n'</span> +<br> <span class="hljs-string">'                    &lt;img src="'</span>+route.routeImgList[i].smallPic+<span class="hljs-string">'"&gt;\n'</span> +<br> <span class="hljs-string">'                &lt;/a&gt;'</span>;<br><br> &#125;<span class="hljs-keyword">else</span>&#123;<br> a=<span class="hljs-string">'  &lt;a title="" class="little_img"\n'</span> +<br> <span class="hljs-string">'                   data-bigpic="'</span>+route.routeImgList[i].bigPic+<span class="hljs-string">'"\n'</span> +<br> <span class="hljs-string">'                   style="display:none;"&gt;\n'</span> +<br> <span class="hljs-string">'                    &lt;img src="'</span>+route.routeImgList[i].smallPic+<span class="hljs-string">'"&gt;\n'</span> +<br> <span class="hljs-string">'                &lt;/a&gt;'</span>;<br> &#125;<br> lis+=a;<br> &#125;<br><br> lis+=<span class="hljs-string">'&lt;a class="down_img down_img_disable" style="margin-bottom: 0;"&gt;&lt;/a&gt;'</span>;<br> $(<span class="hljs-string">"#dd"</span>).html(lis);<br></code></pre></td></tr></table></figure>
+<ol>
+<li><p>前端提交异步请求，是否收藏</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//收藏</span><br>    $.<span class="hljs-keyword">get</span>("route/isFavorite",&#123;rid:rid&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">flag</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span>(flag)&#123;<br>            <span class="hljs-comment">//用户收藏</span><br>            $(<span class="hljs-string">"#favorite"</span>).addClass(<span class="hljs-string">"already"</span>);<br>            $(<span class="hljs-string">"#favorite"</span>).attr(<span class="hljs-string">"disabled"</span>,<span class="hljs-string">"disabled"</span>);<br>            $(<span class="hljs-string">"#favorite"</span>).removeAttr(<span class="hljs-string">"onclick"</span>);<br>        &#125;<br>    &#125;);<br><br>&#125;);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>给收藏按钮绑定点击事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shoucang</span>(<span class="hljs-params"></span>) </span>&#123;<br>     <span class="hljs-keyword">var</span> rid=getParameter(<span class="hljs-string">"rid"</span>);<br>    $.<span class="hljs-keyword">get</span>("user/findOneName",&#123;&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">user</span>) </span>&#123;<br>        <span class="hljs-keyword">if</span>(user)&#123;<br>            <span class="hljs-comment">//用户登录了</span><br>           $.<span class="hljs-keyword">get</span>("route/addFavorite",&#123;rid:rid&#125;,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>                  location.reload();<br>           &#125;);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            alert(<span class="hljs-string">"你尚未登录！请登录"</span>);<br>            location.href=<span class="hljs-string">'login.html'</span>;<br>        &#125;<br><br>    &#125;);<br></code></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Javaweb/" rel="tag"># Javaweb</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/27/%E5%A6%82%E4%BD%95%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="prev" title="如何用hexo搭建个人博客">
+      <i class="fa fa-chevron-left"></i> 如何用hexo搭建个人博客
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#黑马旅游网项目总结，主要是巩固javaweb的知识，基本全部都运用上了。"><span class="nav-number">1.</span> <span class="nav-text">黑马旅游网项目总结，主要是巩固javaweb的知识，基本全部都运用上了。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-BaseSerlvet的学习"><span class="nav-number">1.0.1.</span> <span class="nav-text">1 BaseSerlvet的学习</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-注册功能"><span class="nav-number">1.1.</span> <span class="nav-text">2  注册功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-登录功能"><span class="nav-number">1.2.</span> <span class="nav-text">2 登录功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-欢迎姓名"><span class="nav-number">1.2.1.</span> <span class="nav-text">(3)欢迎姓名</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-分页显示数据"><span class="nav-number">1.3.</span> <span class="nav-text">(4)分页显示数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-分页查询"><span class="nav-number">1.3.1.</span> <span class="nav-text">5 分页查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-收藏功能"><span class="nav-number">1.3.2.</span> <span class="nav-text">6 收藏功能</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">czy</p>
+  <div class="site-description" itemprop="description">好好学习，天天进步</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">czy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+ 
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
