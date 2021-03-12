@@ -164,6 +164,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/12/%E8%AE%B0%E5%BD%95%E8%B8%A9%E5%9D%91%E7%9A%84%E4%B8%80%E6%AC%A1%EF%BC%9Azookeeper+dubbo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="czy">
+      <meta itemprop="description" content="好好学习，天天进步">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="好好学习">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/12/%E8%AE%B0%E5%BD%95%E8%B8%A9%E5%9D%91%E7%9A%84%E4%B8%80%E6%AC%A1%EF%BC%9Azookeeper+dubbo/" class="post-title-link" itemprop="url">记录踩坑的一次：zookeeper+dubbo</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-12 14:45:10 / 修改时间：15:25:39" itemprop="dateCreated datePublished" datetime="2021-03-12T14:45:10+08:00">2021-03-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="记录踩坑的一次：zookeeper-dubbo"><a href="#记录踩坑的一次：zookeeper-dubbo" class="headerlink" title="记录踩坑的一次：zookeeper+dubbo"></a>记录踩坑的一次：zookeeper+dubbo</h1><p><span style="color:red">版本太高   真的坑就很多啊</span></p>
+<p>1.安装docker容器zookeeper   </p>
+<p>(1)从官网拉去zookeeper镜像</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">docker pull zookeeper<br></code></pre></td></tr></table></figure>
+<p>（2）生成容器zookeeper</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">docker <span class="hljs-keyword">run</span><span class="bash"> --name some-zookeeper --restart always -d p 2181:2181 zookeeper</span><br></code></pre></td></tr></table></figure>
+<p>2.dubbo依赖</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs java">  &lt;!-- https:<span class="hljs-comment">//mvnrepository.com/artifact/org.apache.dubbo/dubbo-spring-boot-starter --&gt;</span><br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.apache.dubbo&lt;/groupId&gt;<br>            &lt;artifactId&gt;dubbo-spring-boot-starter&lt;/artifactId&gt;<br>            &lt;version&gt;2.7.3&lt;/version&gt;  //一定换成这版本，要不然连接不上zookeeper<br>        &lt;/dependency&gt;<br><br>        &lt;!-- https:<span class="hljs-comment">//mvnrepository.com/artifact/com.github.sgroschupf/zkclient --&gt;</span><br>        &lt;dependency&gt;<br>            &lt;groupId&gt;com.github.sgroschupf&lt;/groupId&gt;<br>            &lt;artifactId&gt;zkclient&lt;/artifactId&gt;<br>            &lt;version&gt;0.1&lt;/version&gt;<br>        &lt;/dependency&gt;<br><br><br>&lt;!--【新版的坑】zookeeper及其依赖包，解决日志冲突，还需要剔除日志依赖；--&gt;<br>        &lt;!-- https:<span class="hljs-comment">//mvnrepository.com/artifact/org.apache.curator/curator-framework --&gt;</span><br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;<br>            &lt;artifactId&gt;curator-framework&lt;/artifactId&gt;<br>            &lt;version&gt;5.1.0&lt;/version&gt;<br>        &lt;/dependency&gt;<br><br>        &lt;!-- https:<span class="hljs-comment">//mvnrepository.com/artifact/org.apache.curator/curator-recipes --&gt;</span><br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;<br>            &lt;artifactId&gt;curator-recipes&lt;/artifactId&gt;<br>            &lt;version&gt;5.1.0&lt;/version&gt;<br>        &lt;/dependency&gt;<br><br>        &lt;!-- https:<span class="hljs-comment">//mvnrepository.com/artifact/org.apache.zookeeper/zookeeper --&gt;</span><br>        &lt;dependency&gt;<br>            &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;<br>            &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;<br>            &lt;version&gt;3.6.2&lt;/version&gt;<br>            &lt;!--排除这个slf4j-log4j12--&gt;<br>            &lt;exclusions&gt;<br>                &lt;exclusion&gt;<br>                    &lt;groupId&gt;org.slf4j&lt;/groupId&gt;<br>                    &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;<br>                &lt;/exclusion&gt;<br>            &lt;/exclusions&gt;<br>        &lt;/dependency&gt;<br></code></pre></td></tr></table></figure>
+<p>3.项目运行时报错</p>
+<p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/zookeeper/1.png" alt=""></p>
+<p><span style="color:green">解决办法：设置jvm启动参数 -Ddubbo.application.logger=log4j2</span></p>
+<p><img src="https://hexoblog-1301779510.cos.ap-guangzhou.myqcloud.com/picture/zookeeper/2.png" alt=""></p>
+<h6 id="解决办法：设置jvm启动参数-—illegal-access-deny-—add-opens-java-base-java-lang-ALL-UNNAMED"><a href="#解决办法：设置jvm启动参数-—illegal-access-deny-—add-opens-java-base-java-lang-ALL-UNNAMED" class="headerlink" title="解决办法：设置jvm启动参数   —illegal-access=deny —add-opens java.base/java.lang=ALL-UNNAMED"></a>解决办法：设置jvm启动参数   —illegal-access=deny —add-opens java.base/java.lang=ALL-UNNAMED</h6>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/31/%E9%BB%91%E9%A9%AC%E6%97%85%E6%B8%B8%E7%BD%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -864,90 +934,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh_CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="czy">
-      <meta itemprop="description" content="好好学习，天天进步">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="好好学习">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/07/%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0github/" class="post-title-link" itemprop="url">本地项目如何上传github</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-04-07 14:17:59" itemprop="dateCreated datePublished" datetime="2020-04-07T14:17:59+08:00">2020-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-09 22:11:10" itemprop="dateModified" datetime="2020-05-09T22:11:10+08:00">2020-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文写于2020/04/07</p>
-<h5 id="1-在本地的创建一个文件夹，也就是本地用来存储你的项目的仓库。以我为例，snake文件夹，放我这个项目的文件。"><a href="#1-在本地的创建一个文件夹，也就是本地用来存储你的项目的仓库。以我为例，snake文件夹，放我这个项目的文件。" class="headerlink" title="1.在本地的创建一个文件夹，也就是本地用来存储你的项目的仓库。以我为例，snake文件夹，放我这个项目的文件。"></a>1.在本地的创建一个文件夹，也就是本地用来存储你的项目的仓库。以我为例，snake文件夹，放我这个项目的文件。</h5>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/07/%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0github/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1012,7 +1003,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1052,7 +1043,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
